@@ -19,3 +19,9 @@
 > zamykane są wszystkie kasy. Napisz program strażaka, klienta i kierownika kasjerów.
 
 ### [Link do repozytorium](https://github.com/magnuschase/pk-so-supermarket-sim-2024)
+
+## Komendy
+
+- `make -f Makefile` - buduje aplikacje
+- `make -f Makefile clean` - usuwa poprzedni build aplikacji
+- `./build/supermarket.o` - start aplikacji

@@ -1,19 +1,36 @@
-all: supermarket firefighter client manager
-supermarket: supermarket.o semaphores.o
-	gcc -o supermarket supermarket.o semaphores.o
-supermarket.o: supermarket.c semaphores.h 
-	gcc -c supermarket.c
-semaphores.o: semaphores.c
-	gcc -c semaphores.c
-firefighter: firefighter.o semaphores.o
-	gcc -o firefighter firefighter.o semaphores.o
-firefighter.o: firefighter.c
-	gcc -c firefighter.c 
-client: client.o semaphores.o
-	gcc -o client client.o semaphores.o
-client.o:	client.c
-	gcc -c client.c
-manager: manager.o semaphores.o
-	gcc -o manager manager.o semaphores.o
-manager.o: manager.c
-	gcc -c manager.c
+BUILD_DIR = build
+
+all: $(BUILD_DIR)/supermarket $(BUILD_DIR)/firefighter $(BUILD_DIR)/client $(BUILD_DIR)/manager
+
+$(BUILD_DIR):
+		mkdir -p $(BUILD_DIR)
+
+$(BUILD_DIR)/supermarket: $(BUILD_DIR)/supermarket.o $(BUILD_DIR)/semaphores.o | $(BUILD_DIR)
+		gcc -o $(BUILD_DIR)/supermarket $(BUILD_DIR)/supermarket.o $(BUILD_DIR)/semaphores.o
+
+$(BUILD_DIR)/supermarket.o: supermarket.c semaphores.h | $(BUILD_DIR)
+		gcc -c supermarket.c -o $(BUILD_DIR)/supermarket.o
+
+$(BUILD_DIR)/semaphores.o: semaphores.c | $(BUILD_DIR)
+		gcc -c semaphores.c -o $(BUILD_DIR)/semaphores.o
+
+$(BUILD_DIR)/firefighter: $(BUILD_DIR)/firefighter.o $(BUILD_DIR)/semaphores.o | $(BUILD_DIR)
+		gcc -o $(BUILD_DIR)/firefighter $(BUILD_DIR)/firefighter.o $(BUILD_DIR)/semaphores.o
+
+$(BUILD_DIR)/firefighter.o: firefighter.c | $(BUILD_DIR)
+		gcc -c firefighter.c -o $(BUILD_DIR)/firefighter.o
+
+$(BUILD_DIR)/client: $(BUILD_DIR)/client.o $(BUILD_DIR)/semaphores.o | $(BUILD_DIR)
+		gcc -o $(BUILD_DIR)/client $(BUILD_DIR)/client.o $(BUILD_DIR)/semaphores.o
+
+$(BUILD_DIR)/client.o: client.c | $(BUILD_DIR)
+		gcc -c client.c -o $(BUILD_DIR)/client.o
+
+$(BUILD_DIR)/manager: $(BUILD_DIR)/manager.o $(BUILD_DIR)/semaphores.o | $(BUILD_DIR)
+		gcc -o $(BUILD_DIR)/manager $(BUILD_DIR)/manager.o $(BUILD_DIR)/semaphores.o
+
+$(BUILD_DIR)/manager.o: manager.c | $(BUILD_DIR)
+		gcc -c manager.c -o $(BUILD_DIR)/manager.o
+
+clean:
+		rm -rf $(BUILD_DIR)
