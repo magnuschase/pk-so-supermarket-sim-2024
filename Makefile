@@ -1,8 +1,8 @@
 all: supermarket firefighter client manager semaphores
 supermarket: supermarket.o semaphores.o
-	gcc -o mainprog mainprog.o semaphores.o
+	gcc -o supermarket supermarket.o semaphores.o
 supermarket.o: supermarket.c semaphores.h 
-	gcc -c mainprog.c
+	gcc -c supermarket.c
 semaphores.o: semaphores.c
 	gcc -c semaphores.c
 firefighter: firefighter.o semaphores.o
