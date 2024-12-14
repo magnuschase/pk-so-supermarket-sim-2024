@@ -1,4 +1,4 @@
-all: supermarket firefighter client manager semaphores
+all: supermarket firefighter client manager
 supermarket: supermarket.o semaphores.o
 	gcc -o supermarket supermarket.o semaphores.o
 supermarket.o: supermarket.c semaphores.h 

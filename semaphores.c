@@ -1,5 +1,4 @@
 #include "semaphores.h"
-#include<unistd.h>
 
 /*
 
