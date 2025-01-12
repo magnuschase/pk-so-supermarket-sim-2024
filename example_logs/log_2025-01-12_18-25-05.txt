@@ -1,0 +1,249 @@
+[18:25:05] pid:34473 > Customer entered. Total customers: 1
+[18:25:17] pid:34473 > Customer entered. Total customers: 2
+[18:25:30] pid:34473 > Customer entered. Total customers: 3
+[18:25:45] pid:34473 > Customer entered. Total customers: 4
+[18:25:59] pid:34473 > Customer entered. Total customers: 5
+[18:25:59] pid:34474 > Opened a new cash register. Available cash registers: 3
+[18:26:04] pid:34473 > Customer queued at cashier 0. Queue length: 1
+[18:26:05] pid:34473 > Customer queued at cashier 2. Queue length: 1
+[18:26:12] pid:34473 > Customer queued at cashier 0. Queue length: 2
+[18:26:12] pid:34473 > Customer entered. Total customers: 6
+[18:26:14] pid:34473 > Customer left. Total customers: 5
+[18:26:15] pid:34473 > Customer left. Total customers: 4
+[18:26:19] pid:34473 > Customer entered. Total customers: 5
+[18:26:32] pid:34473 > Customer left. Total customers: 4
+[18:26:32] pid:34473 > Customer entered. Total customers: 5
+[18:26:33] pid:34473 > Customer queued at cashier 1. Queue length: 1
+[18:26:36] pid:34473 > Customer queued at cashier 0. Queue length: 1
+[18:26:41] pid:34473 > Customer entered. Total customers: 6
+[18:26:43] pid:34473 > Customer left. Total customers: 5
+[18:26:46] pid:34473 > Customer left. Total customers: 4
+[18:26:49] pid:34473 > Customer queued at cashier 2. Queue length: 1
+[18:26:50] pid:34473 > Customer entered. Total customers: 5
+[18:26:58] pid:34473 > Customer queued at cashier 0. Queue length: 1
+[18:26:59] pid:34473 > Customer left. Total customers: 4
+[18:27:00] pid:34473 > Customer queued at cashier 0. Queue length: 2
+[18:27:05] pid:34473 > Customer entered. Total customers: 5
+[18:27:08] pid:34473 > Customer left. Total customers: 4
+[18:27:20] pid:34473 > Customer left. Total customers: 3
+[18:27:20] pid:34474 > Closed a cash register. Available cash registers: 2
+[18:27:21] pid:34473 > Customer entered. Total customers: 4
+[18:27:22] pid:34473 > Customer queued at cashier 0. Queue length: 1
+[18:27:32] pid:34473 > Customer left. Total customers: 3
+[18:27:33] pid:34473 > Customer entered. Total customers: 4
+[18:27:33] pid:34473 > Customer queued at cashier 1. Queue length: 1
+[18:27:43] pid:34473 > Customer left. Total customers: 3
+[18:27:45] pid:34473 > Customer entered. Total customers: 4
+[18:27:54] pid:34473 > Customer entered. Total customers: 5
+[18:27:54] pid:34474 > Opened a new cash register. Available cash registers: 3
+[18:27:57] pid:34473 > Customer queued at cashier 1. Queue length: 1
+[18:28:07] pid:34473 > Customer left. Total customers: 4
+[18:28:08] pid:34473 > Customer entered. Total customers: 5
+[18:28:10] pid:34473 > Customer queued at cashier 0. Queue length: 1
+[18:28:15] pid:34473 > Customer entered. Total customers: 6
+[18:28:20] pid:34473 > Customer left. Total customers: 5
+[18:28:25] pid:34473 > Customer queued at cashier 2. Queue length: 1
+[18:28:25] pid:34473 > Customer entered. Total customers: 6
+[18:28:30] pid:34473 > Customer queued at cashier 1. Queue length: 1
+[18:28:31] pid:34473 > Customer queued at cashier 2. Queue length: 2
+[18:28:31] pid:34473 > Customer entered. Total customers: 7
+[18:28:31] pid:34474 > Opened a new cash register. Available cash registers: 4
+[18:28:33] pid:34473 > Customer queued at cashier 0. Queue length: 1
+[18:28:35] pid:34473 > Customer left. Total customers: 6
+[18:28:40] pid:34473 > Customer left. Total customers: 5
+[18:28:40] pid:34474 > Closed a cash register. Available cash registers: 3
+[18:28:43] pid:34473 > Customer left. Total customers: 4
+[18:28:44] pid:34473 > Customer queued at cashier 1. Queue length: 1
+[18:28:44] pid:34473 > Customer entered. Total customers: 5
+[18:28:51] pid:34473 > Customer left. Total customers: 4
+[18:28:54] pid:34473 > Customer left. Total customers: 3
+[18:28:54] pid:34474 > Closed a cash register. Available cash registers: 2
+[18:28:54] pid:34473 > Customer entered. Total customers: 4
+[18:29:09] pid:34473 > Customer queued at cashier 1. Queue length: 1
+[18:29:10] pid:34473 > Customer entered. Total customers: 5
+[18:29:10] pid:34474 > Opened a new cash register. Available cash registers: 3
+[18:29:18] pid:34473 > Customer queued at cashier 0. Queue length: 1
+[18:29:19] pid:34473 > Customer left. Total customers: 4
+[18:29:22] pid:34473 > Customer entered. Total customers: 5
+[18:29:28] pid:34473 > Customer left. Total customers: 4
+[18:29:29] pid:34473 > Customer queued at cashier 1. Queue length: 1
+[18:29:34] pid:34473 > Customer queued at cashier 0. Queue length: 1
+[18:29:39] pid:34473 > Customer left. Total customers: 3
+[18:29:39] pid:34474 > Closed a cash register. Available cash registers: 2
+[18:29:41] pid:34473 > Customer entered. Total customers: 4
+[18:29:44] pid:34473 > Customer left. Total customers: 3
+[18:29:49] pid:34473 > Customer entered. Total customers: 4
+[18:30:06] pid:34473 > Customer queued at cashier 1. Queue length: 1
+[18:30:07] pid:34473 > Customer entered. Total customers: 5
+[18:30:07] pid:34474 > Opened a new cash register. Available cash registers: 3
+[18:30:13] pid:34473 > Customer queued at cashier 0. Queue length: 1
+[18:30:16] pid:34473 > Customer left. Total customers: 4
+[18:30:22] pid:34473 > Customer entered. Total customers: 5
+[18:30:23] pid:34473 > Customer left. Total customers: 4
+[18:30:30] pid:34473 > Customer queued at cashier 0. Queue length: 1
+[18:30:31] pid:34473 > Customer entered. Total customers: 5
+[18:30:39] pid:34473 > Customer queued at cashier 0. Queue length: 2
+[18:30:40] pid:34473 > Customer left. Total customers: 4
+[18:30:41] pid:34473 > Customer entered. Total customers: 5
+[18:30:50] pid:34473 > Customer entered. Total customers: 6
+[18:30:55] pid:34473 > Customer queued at cashier 2. Queue length: 1
+[18:30:56] pid:34473 > Customer entered. Total customers: 7
+[18:30:56] pid:34474 > Opened a new cash register. Available cash registers: 4
+[18:30:57] pid:34473 > Customer queued at cashier 3. Queue length: 1
+[18:30:59] pid:34473 > Customer left. Total customers: 6
+[18:31:00] pid:34473 > Customer queued at cashier 2. Queue length: 2
+[18:31:01] pid:34473 > Customer entered. Total customers: 7
+[18:31:05] pid:34473 > Customer left. Total customers: 6
+[18:31:07] pid:34473 > Customer left. Total customers: 5
+[18:31:07] pid:34474 > Closed a cash register. Available cash registers: 3
+[18:31:09] pid:34473 > Customer entered. Total customers: 6
+[18:31:10] pid:34473 > Customer queued at cashier 0. Queue length: 1
+[18:31:17] pid:34473 > Customer queued at cashier 2. Queue length: 2
+[18:31:19] pid:34473 > Customer entered. Total customers: 7
+[18:31:19] pid:34474 > Opened a new cash register. Available cash registers: 4
+[18:31:20] pid:34473 > Customer left. Total customers: 6
+[18:31:20] pid:34473 > Customer left. Total customers: 5
+[18:31:20] pid:34474 > Closed a cash register. Available cash registers: 3
+[18:31:25] pid:34473 > Customer entered. Total customers: 6
+[18:31:34] pid:34473 > Customer queued at cashier 0. Queue length: 1
+[18:31:37] pid:34473 > Customer left. Total customers: 5
+[18:31:38] pid:34473 > Customer entered. Total customers: 6
+[18:31:41] pid:34473 > Customer queued at cashier 2. Queue length: 1
+[18:31:44] pid:34473 > Customer left. Total customers: 5
+[18:31:50] pid:34473 > Customer queued at cashier 2. Queue length: 2
+[18:31:51] pid:34473 > Customer left. Total customers: 4
+[18:31:55] pid:34473 > Customer entered. Total customers: 5
+[18:31:59] pid:34473 > Customer queued at cashier 0. Queue length: 1
+[18:31:59] pid:34473 > Customer queued at cashier 0. Queue length: 2
+[18:32:08] pid:34473 > Customer entered. Total customers: 6
+[18:32:09] pid:34473 > Customer left. Total customers: 5
+[18:32:10] pid:34473 > Customer left. Total customers: 4
+[18:32:19] pid:34473 > Customer left. Total customers: 3
+[18:32:19] pid:34474 > Closed a cash register. Available cash registers: 2
+[18:32:22] pid:34473 > Customer entered. Total customers: 4
+[18:32:26] pid:34473 > Customer queued at cashier 1. Queue length: 1
+[18:32:36] pid:34473 > Customer left. Total customers: 3
+[18:32:37] pid:34473 > Customer queued at cashier 1. Queue length: 1
+[18:32:38] pid:34473 > Customer entered. Total customers: 4
+[18:32:42] pid:34473 > Customer queued at cashier 1. Queue length: 2
+[18:32:47] pid:34473 > Customer queued at cashier 0. Queue length: 1
+[18:32:47] pid:34473 > Customer left. Total customers: 3
+[18:32:51] pid:34473 > Customer entered. Total customers: 4
+[18:32:57] pid:34473 > Customer left. Total customers: 3
+[18:32:58] pid:34473 > Customer entered. Total customers: 4
+[18:33:01] pid:34473 > Customer queued at cashier 0. Queue length: 1
+[18:33:02] pid:34473 > Customer left. Total customers: 3
+[18:33:10] pid:34473 > Customer queued at cashier 1. Queue length: 1
+[18:33:10] pid:34473 > Customer entered. Total customers: 4
+[18:33:11] pid:34473 > Customer left. Total customers: 3
+[18:33:19] pid:34473 > Customer entered. Total customers: 4
+[18:33:21] pid:34473 > Customer left. Total customers: 3
+[18:33:34] pid:34473 > Customer entered. Total customers: 4
+[18:33:51] pid:34473 > Customer entered. Total customers: 5
+[18:33:51] pid:34474 > Opened a new cash register. Available cash registers: 3
+[18:34:03] pid:34473 > Customer queued at cashier 1. Queue length: 1
+[18:34:06] pid:34473 > Customer queued at cashier 1. Queue length: 2
+[18:34:06] pid:34473 > Customer entered. Total customers: 6
+[18:34:13] pid:34473 > Customer left. Total customers: 5
+[18:34:14] pid:34473 > Customer queued at cashier 1. Queue length: 2
+[18:34:15] pid:34473 > Customer queued at cashier 0. Queue length: 1
+[18:34:17] pid:34473 > Customer entered. Total customers: 6
+[18:34:23] pid:34473 > Customer queued at cashier 0. Queue length: 2
+[18:34:25] pid:34473 > Customer left. Total customers: 5
+[18:34:26] pid:34473 > Customer left. Total customers: 4
+[18:34:31] pid:34473 > Customer queued at cashier 2. Queue length: 1
+[18:34:33] pid:34473 > Customer entered. Total customers: 5
+[18:34:34] pid:34473 > Customer left. Total customers: 4
+[18:34:41] pid:34473 > Customer left. Total customers: 3
+[18:34:41] pid:34474 > Closed a cash register. Available cash registers: 2
+[18:34:43] pid:34473 > Customer left. Total customers: 2
+[18:34:50] pid:34473 > Customer entered. Total customers: 3
+[18:34:59] pid:34473 > Customer queued at cashier 1. Queue length: 1
+[18:35:00] pid:34473 > Customer entered. Total customers: 4
+[18:35:09] pid:34473 > Customer left. Total customers: 3
+[18:35:10] pid:34473 > Customer entered. Total customers: 4
+[18:35:17] pid:34473 > Customer queued at cashier 1. Queue length: 1
+[18:35:17] pid:34473 > Customer entered. Total customers: 5
+[18:35:17] pid:34474 > Opened a new cash register. Available cash registers: 3
+[18:35:20] pid:34473 > Customer queued at cashier 2. Queue length: 1
+[18:35:27] pid:34473 > Customer left. Total customers: 4
+[18:35:30] pid:34473 > Customer left. Total customers: 3
+[18:35:30] pid:34474 > Closed a cash register. Available cash registers: 2
+[18:35:31] pid:34473 > Customer entered. Total customers: 4
+[18:35:40] pid:34473 > Customer entered. Total customers: 5
+[18:35:40] pid:34474 > Opened a new cash register. Available cash registers: 3
+[18:35:55] pid:34473 > Customer entered. Total customers: 6
+[18:35:56] pid:34473 > Customer queued at cashier 2. Queue length: 1
+[18:35:56] pid:34473 > Customer queued at cashier 2. Queue length: 2
+[18:36:01] pid:34473 > Customer queued at cashier 0. Queue length: 1
+[18:36:03] pid:34473 > Customer entered. Total customers: 7
+[18:36:03] pid:34474 > Opened a new cash register. Available cash registers: 4
+[18:36:06] pid:34473 > Customer left. Total customers: 6
+[18:36:11] pid:34473 > Customer left. Total customers: 5
+[18:36:11] pid:34474 > Closed a cash register. Available cash registers: 3
+[18:36:12] pid:34473 > Customer entered. Total customers: 6
+[18:36:13] pid:34473 > Customer queued at cashier 1. Queue length: 1
+[18:36:16] pid:34473 > Customer left. Total customers: 5
+[18:36:18] pid:34473 > Customer queued at cashier 2. Queue length: 1
+[18:36:21] pid:34473 > Customer queued at cashier 0. Queue length: 1
+[18:36:23] pid:34473 > Customer left. Total customers: 4
+[18:36:28] pid:34473 > Customer left. Total customers: 3
+[18:36:28] pid:34474 > Closed a cash register. Available cash registers: 2
+[18:36:31] pid:34473 > Customer left. Total customers: 2
+[18:36:31] pid:34473 > Customer queued at cashier 1. Queue length: 1
+[18:36:31] pid:34473 > Customer entered. Total customers: 3
+[18:36:39] pid:34473 > Customer entered. Total customers: 4
+[18:36:41] pid:34473 > Customer left. Total customers: 3
+[18:36:45] pid:34473 > Customer queued at cashier 1. Queue length: 1
+[18:36:54] pid:34473 > Customer entered. Total customers: 4
+[18:36:55] pid:34473 > Customer left. Total customers: 3
+[18:37:08] pid:34473 > Customer queued at cashier 1. Queue length: 1
+[18:37:12] pid:34473 > Customer entered. Total customers: 4
+[18:37:18] pid:34473 > Customer left. Total customers: 3
+[18:37:24] pid:34473 > Customer entered. Total customers: 4
+[18:37:31] pid:34473 > Customer queued at cashier 1. Queue length: 1
+[18:37:38] pid:34473 > Customer entered. Total customers: 5
+[18:37:38] pid:34474 > Opened a new cash register. Available cash registers: 3
+[18:37:39] pid:34473 > Customer queued at cashier 1. Queue length: 2
+[18:37:41] pid:34473 > Customer left. Total customers: 4
+[18:37:44] pid:34473 > Customer entered. Total customers: 5
+[18:37:54] pid:34473 > Customer queued at cashier 2. Queue length: 1
+[18:37:59] pid:34473 > Customer left. Total customers: 4
+[18:37:59] pid:34473 > Customer entered. Total customers: 5
+[18:38:04] pid:34473 > Customer left. Total customers: 4
+[18:38:13] pid:34473 > Customer queued at cashier 0. Queue length: 1
+[18:38:14] pid:34473 > Customer entered. Total customers: 5
+[18:38:21] pid:34473 > Customer queued at cashier 2. Queue length: 1
+[18:38:23] pid:34473 > Customer left. Total customers: 4
+[18:38:24] pid:34473 > Customer queued at cashier 0. Queue length: 1
+[18:38:31] pid:34473 > Customer left. Total customers: 3
+[18:38:31] pid:34474 > Closed a cash register. Available cash registers: 2
+[18:38:33] pid:34473 > Customer entered. Total customers: 4
+[18:38:34] pid:34473 > Customer left. Total customers: 3
+[18:38:38] pid:34473 > Customer queued at cashier 1. Queue length: 1
+[18:38:46] pid:34473 > Customer queued at cashier 0. Queue length: 1
+[18:38:48] pid:34473 > Customer left. Total customers: 2
+[18:38:50] pid:34473 > Customer entered. Total customers: 3
+[18:38:56] pid:34473 > Customer left. Total customers: 2
+[18:39:06] pid:34473 > Customer entered. Total customers: 3
+[18:39:07] pid:34473 > Customer queued at cashier 1. Queue length: 1
+[18:39:11] pid:34473 > Customer entered. Total customers: 4
+[18:39:12] pid:34473 > Customer queued at cashier 1. Queue length: 2
+[18:39:17] pid:34473 > Customer left. Total customers: 3
+[18:39:30] pid:34473 > Customer entered. Total customers: 4
+[18:39:32] pid:34473 > Customer left. Total customers: 3
+[18:39:42] pid:34473 > Customer entered. Total customers: 4
+[18:39:45] pid:34473 > Customer queued at cashier 1. Queue length: 1
+[18:39:47] pid:34473 > Customer queued at cashier 0. Queue length: 1
+[18:39:52] pid:34473 > Customer entered. Total customers: 5
+[18:39:52] pid:34474 > Opened a new cash register. Available cash registers: 3
+[18:39:54] pid:34473 > Customer queued at cashier 0. Queue length: 2
+[18:39:55] pid:34473 > Customer left. Total customers: 4
+[18:39:57] pid:34473 > Customer left. Total customers: 3
+[18:39:57] pid:34474 > Closed a cash register. Available cash registers: 2
+[18:39:58] pid:34473 > Customer queued at cashier 1. Queue length: 1
+[18:40:03] pid:34473 > Customer queued at cashier 0. Queue length: 2
+[18:40:04] pid:34473 > Customer entered. Total customers: 4
+[18:40:08] pid:34473 > Customer left. Total customers: 3
+[18:40:13] pid:34475 > Fire alarm sent
+[18:40:14] pid:34462 > Fire alarm received: Fire alarm!
