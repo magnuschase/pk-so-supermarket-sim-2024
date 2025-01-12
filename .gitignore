@@ -1,2 +1,5 @@
+# Build / logs
 build
 logs
+# VS Code specific files
+.vscode
