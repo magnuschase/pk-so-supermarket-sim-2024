@@ -22,6 +22,6 @@
 
 ## Komendy
 
-- `make -f Makefile` - buduje aplikacje
-- `make -f Makefile clean` - usuwa poprzedni build aplikacji
-- `./build/supermarket.o` - start aplikacji
+- `make` - buduje aplikacje
+- `make clean` - usuwa poprzedni build aplikacji
+- `./build/supermarket` - start aplikacji
