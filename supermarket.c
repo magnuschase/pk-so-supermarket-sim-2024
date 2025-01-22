@@ -1,4 +1,5 @@
 #include "supermarket.h"
+#include "ansi-color-codes.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
@@ -105,10 +106,48 @@ int create_shared_memory(const char *name, int size) {
     return fd;
 }
 
+// Print welcome message and start the simulation
+void print_welcome_message() {
+	int option = 0;
+	while (option != 1 && option != 2) {
+		printf(CLEAR_CONSOLE);
+		printf(BRED "\nSUPERMARKET\t\t\t\t\tSIMULATOR\t" reset "\n");
+		printf(BRED "---------------------------------------------------------" reset "\n\n");
+		printf(BHCYN CYNHB "\tAuthor: Jakub Kapała | Album no: 151885" reset "\n\n");
+		printf(BHMAG MAGHB "\t\tPolitechnika Krakowska" reset "\n\n");
+
+		printf(BBLK "Choose an option:" reset "\n");
+		printf(YELHB "[1]" reset BYEL " Start the simulation" reset "\n");
+		printf(YELHB "[2]" reset BYEL " Exit" reset "\n");
+		printf(BBLK "\nEnter your choice..." reset "\n");
+
+		if (scanf("%d", &option) != 1) {
+			// Clear invalid input
+			while (getchar() != '\n');
+			option = 0;
+		}
+
+		if (option != 1 && option != 2) {
+			printf(BRED "Invalid option. Please choose a new one." reset "\n");
+			sleep(1);
+		}
+	}
+
+	if (option == 2) {
+		exit(EXIT_SUCCESS);
+	}
+
+	printf(CLEAR_CONSOLE);
+	printf(BRED "\nSUPERMARKET\t\t\t\t\tSIMULATOR\t" reset "\n");
+	printf(BRED "---------------------------------------------------------" reset "\n\n");
+}
+
 int main() {
     pid_t pid_customer, pid_manager, pid_firefighter;
     pthread_t server_thread;
 
+		print_welcome_message();
+		
     // Create logs directory if it doesn't exist
     system("mkdir -p logs");
 

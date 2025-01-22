@@ -8,7 +8,7 @@ $(BUILD_DIR):
 $(BUILD_DIR)/supermarket: $(BUILD_DIR)/supermarket.o $(BUILD_DIR)/shared.o | $(BUILD_DIR)
 		gcc -o $(BUILD_DIR)/supermarket $(BUILD_DIR)/supermarket.o $(BUILD_DIR)/shared.o -lpthread
 
-$(BUILD_DIR)/supermarket.o: supermarket.c supermarket.h | $(BUILD_DIR)
+$(BUILD_DIR)/supermarket.o: supermarket.c supermarket.h ansi-color-codes.h | $(BUILD_DIR)
 		gcc -c supermarket.c -o $(BUILD_DIR)/supermarket.o
 
 $(BUILD_DIR)/shared.o: shared.c supermarket.h | $(BUILD_DIR)
