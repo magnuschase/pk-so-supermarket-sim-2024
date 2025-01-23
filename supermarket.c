@@ -146,8 +146,8 @@ void print_welcome_message() {
 	int option = 0;
 	while (option != 1 && option != 2) {
 		print_header();
-		printf(BHCYN CYNHB "\tAuthor: Jakub Kapała | Album no: 151885" reset "\n\n");
-		printf(BHMAG MAGHB "\t\tPolitechnika Krakowska" reset "\n\n");
+		printf(BHCYN CYNHB "\tAuthor: Jakub Kapała | Album no: 151885\t" reset "\n\n");
+		printf(BHMAG MAGHB "\t\tPolitechnika Krakowska\t\t" reset "\n\n");
 
 		printf(BBLK "Choose an option:" reset "\n");
 		printf(YELHB "[1]" reset BYEL " Start the simulation" reset "\n");
