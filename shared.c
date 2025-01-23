@@ -1,12 +1,12 @@
 #include "supermarket.h"
+#include "ansi-color-codes.h"
 #include <stdarg.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
 #include <unistd.h>
-#include <semaphore.h>
-#include <fcntl.h>
-#include <sys/mman.h>
+#include <string.h>
+#include <regex.h>
 
 int *current_cashiers;
 int *customers_in_store;
@@ -16,6 +16,27 @@ pthread_cond_t cashier_cond = PTHREAD_COND_INITIALIZER;
 sem_t *customer_signal;
 FILE *log_file = NULL;
 CashierQueue cashier_queues[MAX_CASHIERS];
+
+// Helper function to remove ANSI escape codes from a string
+void remove_ansi_escape_codes(char *dest, const char *src) {
+    const char *ansi_escape_code_pattern = "\033\\[[0-9;]*[mK]";
+    regex_t regex;
+    regcomp(&regex, ansi_escape_code_pattern, REG_EXTENDED);
+
+    regmatch_t match;
+    const char *p = src;
+    char *d = dest;
+
+    while (regexec(&regex, p, 1, &match, 0) == 0) {
+        size_t len = match.rm_so;
+        strncpy(d, p, len);
+        d += len;
+        p += match.rm_eo;
+    }
+    strcpy(d, p);
+
+    regfree(&regex);
+}
 
 // Message format: [HH:MM:SS] pid:${PID} > ${message}
 void log_message(const char *format, ...) {
@@ -31,21 +52,25 @@ void log_message(const char *format, ...) {
     // Get process ID
     pid_t pid = getpid();
 
-    // Print to console
+    // Print to console with ANSI formatting
     printf("[%s] pid:%d > ", time_str, pid);
     vprintf(format, args);
-    printf("\n");
+    printf(reset "\n"); // Reset formatting after the message
 
-    // Print to log file
+    // Print to log file without ANSI formatting
     if (log_file) {
-        fprintf(log_file, "[%s] pid:%d > ", time_str, pid);
-        vfprintf(log_file, format, args);
-        fprintf(log_file, "\n");
+        char formatted_message[1024];
+        char plain_message[1024];
+        vsnprintf(formatted_message, sizeof(formatted_message), format, args);
+        remove_ansi_escape_codes(plain_message, formatted_message);
+
+        fprintf(log_file, "[%s] pid:%d > %s\n", time_str, pid, plain_message);
         fflush(log_file);
     }
 
     va_end(args);
 }
+
 
 void init_log_file(const char *filename) {
     log_file = fopen(filename, "a");
