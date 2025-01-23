@@ -1,4 +1,5 @@
 #include "supermarket.h"
+#include "ansi-color-codes.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
@@ -20,7 +21,7 @@ Kierunek: Informatyka, niestacjonarne
 void open_cashier() {
     if (*current_cashiers < MAX_CASHIERS) {
         (*current_cashiers)++;
-        log_message("Opened a new cash register. Available cash registers: %d", *current_cashiers);
+        log_message(WHTHB " Opened a new cash register. Available cash registers: %d " reset, *current_cashiers);
     }
 }
 
@@ -31,7 +32,7 @@ void close_cashier(int cashier_index) {
             pthread_cond_wait(&cashier_queues[cashier_index].cond, &cashier_mutex);
         }
         (*current_cashiers)--;
-        log_message("Closed a cash register. Available cash registers: %d", *current_cashiers);
+        log_message(BLKHB " Closed a cash register. Available cash registers: %d " reset, *current_cashiers);
     }
 }
 
