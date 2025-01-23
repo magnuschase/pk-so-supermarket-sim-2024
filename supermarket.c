@@ -161,7 +161,7 @@ void print_welcome_message() {
 			option = 0;
 		}
 
-		if (option != 1 && option != 2) {
+		if (option != 1 && option != 2 && option != 3) {
 			printf(BRED "Invalid option. Please choose a new one." reset "\n");
 			sleep(1);
 		}
