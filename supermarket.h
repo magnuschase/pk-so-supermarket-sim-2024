@@ -23,13 +23,13 @@ Kierunek: Informatyka, niestacjonarne
 #define K 2 // Number of customers per cash register
 #define PORT 151885 // Port for socket communication
 
-#define QUEUE_PER_CUSTOMER 10 // Time in seconds needed to serve a single customer
-#define SHOPPING_TIME_MIN 10 // Minimum shopping time in seconds
-#define SHOPPING_TIME_MAX 70 // Maximum shopping time in seconds
-#define CUSTOMER_WAIT_MIN 5 // Minimum time between customer arrivals in seconds
-#define CUSTOMER_WAIT_MAX 20 // Maximum time between customer arrivals in seconds
-#define FIRE_WAIT_MIN 5 // Minimum time before which fire alarm is triggered
-#define FIRE_WAIT_MAX 20 // Maximum time before which fire alarm is triggered
+int QUEUE_PER_CUSTOMER;  // Time in seconds needed to serve a single customer
+int SHOPPING_TIME_MIN; // Minimum shopping time in seconds
+int SHOPPING_TIME_MAX; // Maximum shopping time in seconds
+int CUSTOMER_WAIT_MIN; // Minimum time between customer arrivals in seconds
+int CUSTOMER_WAIT_MAX; // Maximum time between customer arrivals in seconds
+int FIRE_WAIT_MIN; // Minimum time before which fire alarm is triggered
+int FIRE_WAIT_MAX; // Maximum time before which fire alarm is triggered
 
 extern int *current_cashiers; // Open cash registers
 extern int *customers_in_store; // Customers present in store
@@ -38,6 +38,14 @@ extern pthread_mutex_t cashier_mutex; // Mutex for cashier operations
 extern pthread_cond_t cashier_cond; // Condition variable for cashier operations
 extern sem_t *customer_signal; // Semaphore for customer-manager signaling
 extern FILE *log_file; // Log file
+
+typedef struct {
+    int queue_per_customer;
+    int shopping_time_min;
+    int shopping_time_max;
+    int customer_wait_min;
+    int customer_wait_max;
+} CustomerConfig;
 
 typedef struct {
     int customers;
@@ -49,5 +57,7 @@ extern CashierQueue cashier_queues[MAX_CASHIERS];
 void log_message(const char *format, ...); // Log a message to the console and log file
 void init_log_file(const char *filename); // Initialize the log file
 void close_log_file(); // Close the log file
+void change_configuration(); // Change configuration values
+void print_welcome_message(); // Print welcome message and start the simulation
 
 #endif // SUPERMARKET_H

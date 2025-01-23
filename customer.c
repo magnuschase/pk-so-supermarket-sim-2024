@@ -18,6 +18,8 @@ Kierunek: Informatyka, niestacjonarne
 
 // Logic for a single customer process
 void *customer_thread(void *arg) {
+		CustomerConfig *customer_config = (CustomerConfig *)arg;
+
 		// Only operate when store is opened
     pthread_mutex_lock(&cashier_mutex);
     if (!*store_open) {
@@ -29,16 +31,16 @@ void *customer_thread(void *arg) {
  		// Signal manager process
     sem_post(customer_signal);
     pthread_mutex_unlock(&cashier_mutex);
-		// Simulate shopping time - between 10 and 70 seconds
-    sleep(rand() % (SHOPPING_TIME_MAX - SHOPPING_TIME_MIN) + SHOPPING_TIME_MIN);
+		// Simulate shopping time - default 10s-70s
+    sleep(rand() % (customer_config->shopping_time_max - customer_config->shopping_time_min) + customer_config->shopping_time_min);
 
     // Queue customer for a cashier
     int cashier_index = rand() % *current_cashiers;
     cashier_queues[cashier_index].customers++;
 		log_message("Customer queued at cashier %d. Queue length: %d", cashier_index, cashier_queues[cashier_index].customers);
     pthread_cond_signal(&cashier_queues[cashier_index].cond);
-		// Queue should take 10 seconds per customer
-    sleep(cashier_queues[cashier_index].customers * QUEUE_PER_CUSTOMER); 
+		// Queue should take specified amount of seconds per customer (default 10s)
+    sleep(cashier_queues[cashier_index].customers * customer_config->queue_per_customer); 
 
     pthread_mutex_lock(&cashier_mutex);
     if (!*store_open) {
@@ -59,13 +61,21 @@ void *customer_thread(void *arg) {
 }
 
 int main(int argc, char *argv[]) {
-    if (argc < 2) {
-        fprintf(stderr, "Usage: %s <log_filename>\n", argv[0]);
+    if (argc < 7) {
+        fprintf(stderr, "Usage: %s <log_filename> <queue_per_customer> <shopping_time_min> <shopping_time_max> <customer_wait_min> <customer_wait_max>\n", argv[0]);
         exit(EXIT_FAILURE);
     }
 
     // Initialize log file
     init_log_file(argv[1]);
+
+		// Read configuration values from command-line arguments
+		CustomerConfig config;
+    config.queue_per_customer = atoi(argv[2]);
+    config.shopping_time_min = atoi(argv[3]);
+    config.shopping_time_max = atoi(argv[4]);
+    config.customer_wait_min = atoi(argv[5]);
+    config.customer_wait_max = atoi(argv[6]);
 
     // Open named semaphore
     customer_signal = sem_open("/customer_signal", 0);
@@ -116,9 +126,9 @@ int main(int argc, char *argv[]) {
     // Continuously create new customers until the store is closed
     while (*store_open) {
         pthread_t customer_thread_id;
-        pthread_create(&customer_thread_id, NULL, customer_thread, NULL);
+        pthread_create(&customer_thread_id, NULL, customer_thread, &config);
         pthread_detach(customer_thread_id); // Detach the thread to allow it to run independently
-        sleep(rand() % (CUSTOMER_WAIT_MAX - CUSTOMER_WAIT_MIN) + CUSTOMER_WAIT_MIN); // Customers enter at random intervals between 5 and 20 seconds
+        sleep(rand() % (config.customer_wait_max - config.customer_wait_min) + config.customer_wait_min); // Customers enter at random intervals in specified range (default 5s-20s)
     }
 
     // Check for store closure

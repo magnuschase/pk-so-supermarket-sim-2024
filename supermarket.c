@@ -24,6 +24,43 @@ Kierunek: Informatyka, niestacjonarne
 
 */
 
+// Configuration values
+int QUEUE_PER_CUSTOMER = 10; // Time in seconds needed to serve a single customer
+int SHOPPING_TIME_MIN = 10; // Minimum shopping time in seconds
+int SHOPPING_TIME_MAX = 70; // Maximum shopping time in seconds
+int CUSTOMER_WAIT_MIN = 5; // Minimum time between customer arrivals in seconds
+int CUSTOMER_WAIT_MAX = 20; // Maximum time between customer arrivals in seconds
+int FIRE_WAIT_MIN = 5; // Minimum time before which fire alarm is triggered
+int FIRE_WAIT_MAX = 20; // Maximum time before which fire alarm is triggered
+
+// Safely read an integer value from the user within a specified range
+int scan_int_in_range(const char *prompt, int min, int max) {
+    int value;
+    while (1) {
+        printf("%s (%d-%d): ", prompt, min, max);
+        if (scanf("%d", &value) == 1 && value >= min && value <= max) {
+            break;
+        } else {
+            printf(BRED "Invalid input. Please enter a value between %d and %d." reset "\n", min, max);
+            while (getchar() != '\n'); // Clear invalid input
+        }
+    }
+    return value;
+}
+
+void change_configuration() {
+		printf(CLEAR_CONSOLE);
+		printf(BRED "\nSUPERMARKET\t\t\t\t\tSIMULATOR\t" reset "\n");
+		printf(BRED "---------------------------------------------------------" reset "\n\n");
+
+    QUEUE_PER_CUSTOMER = scan_int_in_range("Enter the time in seconds needed to serve a single customer" BBLK " (QUEUE_PER_CUSTOMER, DEFAULT=10) " reset, 1, 60);
+    SHOPPING_TIME_MIN = scan_int_in_range("Enter the minimum shopping time in seconds" BBLK " (SHOPPING_TIME_MIN, DEFAULT = 10) " reset, 1, 120);
+    SHOPPING_TIME_MAX = scan_int_in_range("Enter the maximum shopping time in seconds" BBLK " (SHOPPING_TIME_MAX, DEFAULT = 70) " reset, SHOPPING_TIME_MIN, SHOPPING_TIME_MIN + 120);
+    CUSTOMER_WAIT_MIN = scan_int_in_range("Enter the minimum time between customer arrivals in seconds" BBLK " (CUSTOMER_WAIT_MIN, DEFAULT = 5) " reset, 1, 120);
+    CUSTOMER_WAIT_MAX = scan_int_in_range("Enter the maximum time between customer arrivals in seconds" BBLK " (CUSTOMER_WAIT_MAX, DEFAULT = 20) " reset, CUSTOMER_WAIT_MIN, CUSTOMER_WAIT_MIN + 120);
+    FIRE_WAIT_MIN = scan_int_in_range("Enter the minimum time before which fire alarm is triggered" BBLK " (FIRE_WAIT_MIN, DEFAULT = 5) " reset, 0, 60);
+    FIRE_WAIT_MAX = scan_int_in_range("Enter the maximum time before which fire alarm is triggered" BBLK " (FIRE_WAIT_MAX, DEFAULT = 20) " reset, FIRE_WAIT_MIN, FIRE_WAIT_MIN + 60);
+}
 
 // Sockets are used to communicate with the firefighter process
 // when a fire alarm is triggered
@@ -118,7 +155,8 @@ void print_welcome_message() {
 
 		printf(BBLK "Choose an option:" reset "\n");
 		printf(YELHB "[1]" reset BYEL " Start the simulation" reset "\n");
-		printf(YELHB "[2]" reset BYEL " Exit" reset "\n");
+		printf(YELHB "[2]" reset BYEL " Change configuration" reset "\n");
+		printf(YELHB "[3]" reset BYEL " Exit" reset "\n");
 		printf(BBLK "\nEnter your choice..." reset "\n");
 
 		if (scanf("%d", &option) != 1) {
@@ -133,8 +171,12 @@ void print_welcome_message() {
 		}
 	}
 
-	if (option == 2) {
+	if (option == 3) {
 		exit(EXIT_SUCCESS);
+	}
+
+	if (option == 2) {
+		change_configuration();
 	}
 
 	printf(CLEAR_CONSOLE);
@@ -146,8 +188,6 @@ int main() {
     pid_t pid_customer, pid_manager, pid_firefighter;
     pthread_t server_thread;
 
-		print_welcome_message();
-		
     // Create logs directory if it doesn't exist
     system("mkdir -p logs");
 
@@ -157,6 +197,9 @@ int main() {
     char log_filename[256];
     strftime(log_filename, sizeof(log_filename) - 1, "logs/log_%Y-%m-%d_%H-%M-%S.txt", t);
     init_log_file(log_filename);
+
+		// Start simulation, change configuration or exit
+		print_welcome_message();
 
 		// Open named semaphore - it is used to signal the manager process that a customer has either
 		// left or entered the store
@@ -199,9 +242,19 @@ int main() {
     // Start the socket server in a separate thread
     pthread_create(&server_thread, NULL, socket_server, NULL);
 
+		// Convert configuration values to strings
+    char queue_per_customer_str[10], shopping_time_min_str[10], shopping_time_max_str[10], customer_wait_min_str[10], customer_wait_max_str[10], fire_wait_min_str[10], fire_wait_max_str[10];
+    snprintf(queue_per_customer_str, sizeof(queue_per_customer_str), "%d", QUEUE_PER_CUSTOMER);
+    snprintf(shopping_time_min_str, sizeof(shopping_time_min_str), "%d", SHOPPING_TIME_MIN);
+    snprintf(shopping_time_max_str, sizeof(shopping_time_max_str), "%d", SHOPPING_TIME_MAX);
+    snprintf(customer_wait_min_str, sizeof(customer_wait_min_str), "%d", CUSTOMER_WAIT_MIN);
+    snprintf(customer_wait_max_str, sizeof(customer_wait_max_str), "%d", CUSTOMER_WAIT_MAX);
+    snprintf(fire_wait_min_str, sizeof(fire_wait_min_str), "%d", FIRE_WAIT_MIN);
+    snprintf(fire_wait_max_str, sizeof(fire_wait_max_str), "%d", FIRE_WAIT_MAX);
+
     // Fork `customer` process - it will manage the customers entering and leaving the store
     if ((pid_customer = fork()) == 0) {
-        execl("./build/customer", "customer", log_filename, NULL);
+        execl("./build/customer", "customer", log_filename, queue_per_customer_str, shopping_time_min_str, shopping_time_max_str, customer_wait_min_str, customer_wait_max_str, NULL);
         perror("execl failed");
         exit(1);
     }
@@ -215,7 +268,7 @@ int main() {
 
     // Fork firefighter process - it will handle fire alarms
     if ((pid_firefighter = fork()) == 0) {
-        execl("./build/firefighter", "firefighter", log_filename, NULL);
+        execl("./build/firefighter", "firefighter", log_filename, fire_wait_min_str, fire_wait_max_str, NULL);
         perror("execl failed");
         exit(1);
     }

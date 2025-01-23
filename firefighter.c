@@ -54,16 +54,20 @@ void fire_alarm() {
 }
 
 int main(int argc, char *argv[]) {
-    if (argc < 2) {
-        fprintf(stderr, "Usage: %s <log_filename>\n", argv[0]);
+    if (argc < 4) {
+        fprintf(stderr, "Usage: %s <log_filename> <fire_wait_min> <fire_wait_max>\n", argv[0]);
         exit(EXIT_FAILURE);
     }
 
     // Initialize log file
     init_log_file(argv[1]);
 
-    // Simulate fire alarm after some time - minimum 5 minutes, maximum 20 minutes
-		sleep(rand() % ((FIRE_WAIT_MAX - FIRE_WAIT_MIN) * 60) + (FIRE_WAIT_MIN * 60));
+		// Read configuration values from command-line arguments
+    int fire_wait_min = atoi(argv[2]);
+    int fire_wait_max = atoi(argv[3]);
+
+    // Simulate fire alarm after some time - default: minimum 5 minutes, maximum 20 minutes
+		sleep(rand() % ((fire_wait_max - fire_wait_min) * 60) + (fire_wait_min * 60));
     fire_alarm();
 
     // Close log file
