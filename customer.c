@@ -127,7 +127,10 @@ int main(int argc, char *argv[]) {
     // Continuously create new customers until the store is closed
     while (*store_open) {
         pthread_t customer_thread_id;
-        pthread_create(&customer_thread_id, NULL, customer_thread, &config);
+				if (pthread_create(&customer_thread_id, NULL, customer_thread, &config) != 0) {
+            perror("pthread_create failed");
+            exit(EXIT_FAILURE);
+        }
         pthread_detach(customer_thread_id); // Detach the thread to allow it to run independently
         sleep(rand() % (config.customer_wait_max - config.customer_wait_min) + config.customer_wait_min); // Customers enter at random intervals in specified range (default 5s-20s)
     }
@@ -143,12 +146,20 @@ int main(int argc, char *argv[]) {
     close_log_file();
 
     // Close named semaphore
-    sem_close(customer_signal);
+    if (sem_close(customer_signal) != 0) {
+        perror("sem_close failed");
+    }
 
     // Unmap shared memory
-    munmap(customers_in_store, sizeof(int));
-    munmap(store_open, sizeof(int));
-    munmap(current_cashiers, sizeof(int));
+    if (munmap(customers_in_store, sizeof(int)) != 0) {
+        perror("munmap customers_in_store failed");
+    }
+    if (munmap(store_open, sizeof(int)) != 0) {
+        perror("munmap store_open failed");
+    }
+    if (munmap(current_cashiers, sizeof(int)) != 0) {
+        perror("munmap current_cashiers failed");
+    }
 
     return 0;
 }
