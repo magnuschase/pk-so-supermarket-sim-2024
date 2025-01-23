@@ -40,16 +40,16 @@ extern sem_t *customer_signal; // Semaphore for customer-manager signaling
 extern FILE *log_file; // Log file
 
 typedef struct {
-    int queue_per_customer;
-    int shopping_time_min;
-    int shopping_time_max;
-    int customer_wait_min;
-    int customer_wait_max;
+		int queue_per_customer;
+		int shopping_time_min;
+		int shopping_time_max;
+		int customer_wait_min;
+		int customer_wait_max;
 } CustomerConfig;
 
 typedef struct {
-    int customers;
-    pthread_cond_t cond;
+		int customers;
+		pthread_cond_t cond;
 } CashierQueue;
 
 extern CashierQueue cashier_queues[MAX_CASHIERS];
