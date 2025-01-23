@@ -1,4 +1,5 @@
 #include "supermarket.h"
+#include "ansi-color-codes.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
@@ -48,7 +49,8 @@ void fire_alarm() {
 
     // Send the message
     send(sock, message, strlen(message), 0);
-    log_message("Fire alarm sent");
+		print_header();
+    log_message(BHYEL YELHB " DANGER! DANGER! " reset BHRED REDHB " Fire alarm triggered. " reset);
 
     close(sock);
 }
