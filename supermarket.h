@@ -59,5 +59,6 @@ void init_log_file(const char *filename); // Initialize the log file
 void close_log_file(); // Close the log file
 void change_configuration(); // Change configuration values
 void print_welcome_message(); // Print welcome message and start the simulation
+void print_header(); // Print simulator header
 
 #endif // SUPERMARKET_H

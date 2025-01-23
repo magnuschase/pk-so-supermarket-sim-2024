@@ -17,6 +17,13 @@ sem_t *customer_signal;
 FILE *log_file = NULL;
 CashierQueue cashier_queues[MAX_CASHIERS];
 
+// Print simulator header
+void print_header() {
+		printf(CLEAR_CONSOLE);
+		printf(BRED "\nSUPERMARKET\t\t\t\t\tSIMULATOR\t" reset "\n");
+		printf(BRED "---------------------------------------------------------" reset "\n\n");
+}
+
 // Helper function to remove ANSI escape codes from a string
 void remove_ansi_escape_codes(char *dest, const char *src) {
     const char *ansi_escape_code_pattern = "\033\\[[0-9;]*[mK]";

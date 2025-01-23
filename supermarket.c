@@ -49,9 +49,7 @@ int scan_int_in_range(const char *prompt, int min, int max) {
 }
 
 void change_configuration() {
-		printf(CLEAR_CONSOLE);
-		printf(BRED "\nSUPERMARKET\t\t\t\t\tSIMULATOR\t" reset "\n");
-		printf(BRED "---------------------------------------------------------" reset "\n\n");
+		print_header();
 
     QUEUE_PER_CUSTOMER = scan_int_in_range("Enter the time in seconds needed to serve a single customer" BBLK " (QUEUE_PER_CUSTOMER, DEFAULT=10) " reset, 1, 60);
     SHOPPING_TIME_MIN = scan_int_in_range("Enter the minimum shopping time in seconds" BBLK " (SHOPPING_TIME_MIN, DEFAULT = 10) " reset, 1, 120);
@@ -107,7 +105,7 @@ void *socket_server(void *arg) {
     // Read the message from the firefighter process
     read(new_socket, buffer, 1024);
 		sleep(1);
-    log_message("Fire alarm received: %s", buffer);
+    log_message(BLKHB " Fire alarm received: %s " reset, buffer);
 
     // Signal store closure
     pthread_mutex_lock(&cashier_mutex);
@@ -147,9 +145,7 @@ int create_shared_memory(const char *name, int size) {
 void print_welcome_message() {
 	int option = 0;
 	while (option != 1 && option != 2) {
-		printf(CLEAR_CONSOLE);
-		printf(BRED "\nSUPERMARKET\t\t\t\t\tSIMULATOR\t" reset "\n");
-		printf(BRED "---------------------------------------------------------" reset "\n\n");
+		print_header();
 		printf(BHCYN CYNHB "\tAuthor: Jakub Kapała | Album no: 151885" reset "\n\n");
 		printf(BHMAG MAGHB "\t\tPolitechnika Krakowska" reset "\n\n");
 
@@ -179,9 +175,7 @@ void print_welcome_message() {
 		change_configuration();
 	}
 
-	printf(CLEAR_CONSOLE);
-	printf(BRED "\nSUPERMARKET\t\t\t\t\tSIMULATOR\t" reset "\n");
-	printf(BRED "---------------------------------------------------------" reset "\n\n");
+	print_header();
 }
 
 int main() {
