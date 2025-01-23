@@ -51,13 +51,13 @@ int scan_int_in_range(const char *prompt, int min, int max) {
 void change_configuration() {
 		print_header();
 
-    QUEUE_PER_CUSTOMER = scan_int_in_range("Enter the time in seconds needed to serve a single customer" BBLK " (QUEUE_PER_CUSTOMER, DEFAULT=10) " reset, 1, 60);
-    SHOPPING_TIME_MIN = scan_int_in_range("Enter the minimum shopping time in seconds" BBLK " (SHOPPING_TIME_MIN, DEFAULT = 10) " reset, 1, 120);
-    SHOPPING_TIME_MAX = scan_int_in_range("Enter the maximum shopping time in seconds" BBLK " (SHOPPING_TIME_MAX, DEFAULT = 70) " reset, SHOPPING_TIME_MIN, SHOPPING_TIME_MIN + 120);
-    CUSTOMER_WAIT_MIN = scan_int_in_range("Enter the minimum time between customer arrivals in seconds" BBLK " (CUSTOMER_WAIT_MIN, DEFAULT = 5) " reset, 1, 120);
-    CUSTOMER_WAIT_MAX = scan_int_in_range("Enter the maximum time between customer arrivals in seconds" BBLK " (CUSTOMER_WAIT_MAX, DEFAULT = 20) " reset, CUSTOMER_WAIT_MIN, CUSTOMER_WAIT_MIN + 120);
-    FIRE_WAIT_MIN = scan_int_in_range("Enter the minimum time before which fire alarm is triggered" BBLK " (FIRE_WAIT_MIN, DEFAULT = 5) " reset, 0, 60);
-    FIRE_WAIT_MAX = scan_int_in_range("Enter the maximum time before which fire alarm is triggered" BBLK " (FIRE_WAIT_MAX, DEFAULT = 20) " reset, FIRE_WAIT_MIN, FIRE_WAIT_MIN + 60);
+    QUEUE_PER_CUSTOMER = scan_int_in_range("Enter the time in seconds needed to serve a single customer " BBLK WHTB "(QUEUE_PER_CUSTOMER, DEFAULT=10)" reset, 1, 60);
+    SHOPPING_TIME_MIN = scan_int_in_range("Enter the minimum shopping time in seconds" BBLK WHTB "(SHOPPING_TIME_MIN, DEFAULT = 10)" reset, 1, 120);
+    SHOPPING_TIME_MAX = scan_int_in_range("Enter the maximum shopping time in seconds" BBLK WHTB "(SHOPPING_TIME_MAX, DEFAULT = 70)" reset, SHOPPING_TIME_MIN, SHOPPING_TIME_MIN + 120);
+    CUSTOMER_WAIT_MIN = scan_int_in_range("Enter the minimum time between customer arrivals in seconds" BBLK WHTB "(CUSTOMER_WAIT_MIN, DEFAULT = 5)" reset, 1, 120);
+    CUSTOMER_WAIT_MAX = scan_int_in_range("Enter the maximum time between customer arrivals in seconds" BBLK WHTB "(CUSTOMER_WAIT_MAX, DEFAULT = 20)" reset, CUSTOMER_WAIT_MIN, CUSTOMER_WAIT_MIN + 120);
+    FIRE_WAIT_MIN = scan_int_in_range("Enter the minimum time before which fire alarm is triggered" BBLK WHTB "(FIRE_WAIT_MIN, DEFAULT = 5)" reset, 0, 60);
+    FIRE_WAIT_MAX = scan_int_in_range("Enter the maximum time before which fire alarm is triggered" BBLK WHTB "(FIRE_WAIT_MAX, DEFAULT = 20)" reset, FIRE_WAIT_MIN, FIRE_WAIT_MIN + 60);
 }
 
 // Sockets are used to communicate with the firefighter process
