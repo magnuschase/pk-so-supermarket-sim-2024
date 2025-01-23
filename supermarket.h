@@ -21,7 +21,7 @@ Kierunek: Informatyka, niestacjonarne
 #define MIN_CASHIERS 2
 #define MAX_CASHIERS 10
 #define K 2 // Number of customers per cash register
-#define PORT 151885 // Port for socket communication
+#define PORT 15188 // Port for socket communication
 
 int QUEUE_PER_CUSTOMER;  // Time in seconds needed to serve a single customer
 int SHOPPING_TIME_MIN; // Minimum shopping time in seconds
