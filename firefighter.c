@@ -28,8 +28,8 @@ void fire_alarm() {
 
     // Create socket
     if ((sock = socket(AF_INET, SOCK_STREAM, 0)) < 0) {
-        log_message("Socket creation error");
-        return;
+        perror("Socket creation error");
+				exit(EXIT_FAILURE);
     }
 
     serv_addr.sin_family = AF_INET;
@@ -37,20 +37,24 @@ void fire_alarm() {
 
     // Convert IPv4 and IPv6 addresses from text to binary form
     if (inet_pton(AF_INET, "127.0.0.1", &serv_addr.sin_addr) <= 0) {
-        log_message("Invalid address/ Address not supported");
-        return;
+        perror("Invalid address/ Address not supported");
+        exit(EXIT_FAILURE);
     }
 
     // Connect to the server
     if (connect(sock, (struct sockaddr *)&serv_addr, sizeof(serv_addr)) < 0) {
-        log_message("Connection Failed");
-        return;
+        perror("Connection Failed");
+				exit(EXIT_FAILURE);
     }
 
     // Send the message
-    send(sock, message, strlen(message), 0);
-		print_header();
-    log_message(YELHB BYEL " DANGER! DANGER! " reset REDHB BRED " Fire alarm triggered. " reset);
+		if (send(sock, message, strlen(message), 0) < 0) {
+        perror("Send failed");
+				exit(EXIT_FAILURE);
+    } else {
+        print_header();
+        log_message(YELHB BYEL " DANGER! DANGER! " reset REDHB BRED " Fire alarm triggered. " reset);
+    }
 
     close(sock);
 }
@@ -67,6 +71,12 @@ int main(int argc, char *argv[]) {
 		// Read configuration values from command-line arguments
     int fire_wait_min = atoi(argv[2]);
     int fire_wait_max = atoi(argv[3]);
+
+		// Validate configuration values
+    if (fire_wait_min < 0 || fire_wait_max < fire_wait_min) {
+        fprintf(stderr, "Invalid fire wait times\n");
+        exit(EXIT_FAILURE);
+    }
 
     // Simulate fire alarm after some time - default: minimum 5 minutes, maximum 20 minutes
 		sleep(rand() % ((fire_wait_max - fire_wait_min) * 60) + (fire_wait_min * 60));
