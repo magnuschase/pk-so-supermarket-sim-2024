@@ -1,0 +1,80 @@
+[16:46:15] pid:50806 >  Ding dong!  Customer entered.  Total customers: 1
+[16:46:17] pid:50806 >  Cashier 1.  Customer queued.  Queue length: 1
+[16:46:19] pid:50806 >  Ding dong!  Customer entered.  Total customers: 2
+[16:46:22] pid:50806 >  Ding dong!  Customer entered.  Total customers: 3
+[16:46:22] pid:50806 >  Cashier 0.  Customer queued.  Queue length: 1
+[16:46:23] pid:50806 >  Ding dong!  Customer entered.  Total customers: 4
+[16:46:25] pid:50806 >  Cashier 0.  Customer queued.  Queue length: 2
+[16:46:25] pid:50806 >  Cashier 1.  Customer queued.  Queue length: 2
+[16:46:27] pid:50806 >  Ding dong!  Customer entered.  Total customers: 5
+[16:46:27] pid:50807 >  Opened a new cash register. Available cash registers: 3 
+[16:46:28] pid:50806 >  Ding dong!  Customer entered.  Total customers: 6
+[16:46:30] pid:50806 >  Cashier 1.  Customer queued.  Queue length: 3
+[16:46:32] pid:50806 >  Cashier 1.  Customer queued.  Queue length: 4
+[16:46:32] pid:50806 >  Ding dong!  Customer entered.  Total customers: 7
+[16:46:32] pid:50807 >  Opened a new cash register. Available cash registers: 4 
+[16:46:33] pid:50806 >  Ding dong!  Customer entered.  Total customers: 8
+[16:46:33] pid:50806 >  Cashier 1.  Customer queued.  Queue length: 5
+[16:46:35] pid:50806 >  Cashier 1.  Customer queued.  Queue length: 6
+[16:46:37] pid:50806 >  Ding dong!  Customer left.  Total customers: 7
+[16:46:37] pid:50806 >  Ding dong!  Customer entered.  Total customers: 8
+[16:46:38] pid:50806 >  Ding dong!  Customer entered.  Total customers: 9
+[16:46:38] pid:50807 >  Opened a new cash register. Available cash registers: 5 
+[16:46:39] pid:50806 >  Cashier 1.  Customer queued.  Queue length: 6
+[16:46:41] pid:50806 >  Cashier 0.  Customer queued.  Queue length: 3
+[16:46:42] pid:50806 >  Ding dong!  Customer left.  Total customers: 8
+[16:46:42] pid:50806 >  Ding dong!  Customer entered.  Total customers: 9
+[16:46:44] pid:50806 >  Ding dong!  Customer entered.  Total customers: 10
+[16:46:45] pid:50806 >  Cashier 0.  Customer queued.  Queue length: 3
+[16:46:45] pid:50806 >  Ding dong!  Customer entered.  Total customers: 11
+[16:46:45] pid:50807 >  Opened a new cash register. Available cash registers: 6 
+[16:46:47] pid:50806 >  Ding dong!  Customer entered.  Total customers: 12
+[16:46:48] pid:50806 >  Cashier 3.  Customer queued.  Queue length: 1
+[16:46:49] pid:50806 >  Cashier 1.  Customer queued.  Queue length: 7
+[16:46:49] pid:50806 >  Ding dong!  Customer entered.  Total customers: 13
+[16:46:49] pid:50807 >  Opened a new cash register. Available cash registers: 7 
+[16:46:50] pid:50806 >  Ding dong!  Customer entered.  Total customers: 14
+[16:46:51] pid:50806 >  Cashier 5.  Customer queued.  Queue length: 1
+[16:46:51] pid:50806 >  Cashier 4.  Customer queued.  Queue length: 1
+[16:46:51] pid:50806 >  Ding dong!  Customer entered.  Total customers: 15
+[16:46:51] pid:50807 >  Opened a new cash register. Available cash registers: 8 
+[16:46:52] pid:50806 >  Cashier 5.  Customer queued.  Queue length: 2
+[16:46:54] pid:50806 >  Cashier 1.  Customer queued.  Queue length: 8
+[16:46:55] pid:50806 >  Ding dong!  Customer entered.  Total customers: 16
+[16:46:56] pid:50806 >  Cashier 0.  Customer queued.  Queue length: 4
+[16:46:57] pid:50806 >  Ding dong!  Customer entered.  Total customers: 17
+[16:46:57] pid:50807 >  Opened a new cash register. Available cash registers: 9 
+[16:46:58] pid:50806 >  Ding dong!  Customer entered.  Total customers: 18
+[16:46:59] pid:50806 >  Cashier 3.  Customer queued.  Queue length: 2
+[16:46:59] pid:50806 >  Ding dong!  Customer entered.  Total customers: 19
+[16:46:59] pid:50807 >  Opened a new cash register. Available cash registers: 10 
+[16:47:00] pid:50806 >  Cashier 6.  Customer queued.  Queue length: 1
+[16:47:02] pid:50806 >  Cashier 9.  Customer queued.  Queue length: 1
+[16:47:03] pid:50806 >  Ding dong!  Customer entered.  Total customers: 20
+[16:47:04] pid:50806 >  Ding dong!  Customer entered.  Total customers: 21
+[16:47:05] pid:50806 >  Ding dong!  Customer left.  Total customers: 20
+[16:47:05] pid:50806 >  Ding dong!  Customer left.  Total customers: 19
+[16:47:05] pid:50806 >  Cashier 8.  Customer queued.  Queue length: 1
+[16:47:06] pid:50806 >  Ding dong!  Customer entered.  Total customers: 20
+[16:47:06] pid:50806 >  Cashier 8.  Customer queued.  Queue length: 2
+[16:47:07] pid:50806 >  Ding dong!  Customer entered.  Total customers: 21
+[16:47:08] pid:50806 >  Ding dong!  Customer left.  Total customers: 20
+[16:47:08] pid:50806 >  Cashier 3.  Customer queued.  Queue length: 2
+[16:47:09] pid:50806 >  Ding dong!  Customer entered.  Total customers: 21
+[16:47:11] pid:50806 >  Ding dong!  Customer left.  Total customers: 20
+[16:47:11] pid:50806 >  Ding dong!  Customer left.  Total customers: 19
+[16:47:11] pid:50806 >  Cashier 3.  Customer queued.  Queue length: 3
+[16:47:11] pid:50806 >  Ding dong!  Customer entered.  Total customers: 20
+[16:47:12] pid:50806 >  Cashier 9.  Customer queued.  Queue length: 2
+[16:47:12] pid:50806 >  Ding dong!  Customer entered.  Total customers: 21
+[16:47:13] pid:50806 >  Cashier 9.  Customer queued.  Queue length: 3
+[16:47:15] pid:50806 >  Cashier 1.  Customer queued.  Queue length: 8
+[16:47:16] pid:50806 >  Ding dong!  Customer entered.  Total customers: 22
+[16:47:18] pid:50806 >  Ding dong!  Customer entered.  Total customers: 23
+[16:47:19] pid:50806 >  Cashier 1.  Customer queued.  Queue length: 9
+[16:47:20] pid:50806 >  Ding dong!  Customer left.  Total customers: 22
+[16:47:20] pid:50806 >  Ding dong!  Customer entered.  Total customers: 23
+[16:47:20] pid:50806 >  Cashier 3.  Customer queued.  Queue length: 4
+[16:47:21] pid:50806 >  Cashier 5.  Customer queued.  Queue length: 2
+[16:47:22] pid:50809 >  DANGER! DANGER!  Fire alarm triggered. 
+[16:47:23] pid:50073 >  Fire alarm received: Fire alarm! 
