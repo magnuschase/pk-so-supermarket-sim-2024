@@ -1,4 +1,5 @@
 #include "supermarket.h"
+#include "ansi-color-codes.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
@@ -27,7 +28,7 @@ void *customer_thread(void *arg) {
         return NULL;
     }
     (*customers_in_store)++;
-    log_message("Customer entered. Total customers: %d", *customers_in_store);
+    log_message(BHYEL YELHB " Ding dong! " reset BHGRN GRNHB " Customer entered. " reset BHGRN " Total customers: %d" reset, *customers_in_store);
  		// Signal manager process
     sem_post(customer_signal);
     pthread_mutex_unlock(&cashier_mutex);
@@ -37,7 +38,7 @@ void *customer_thread(void *arg) {
     // Queue customer for a cashier
     int cashier_index = rand() % *current_cashiers;
     cashier_queues[cashier_index].customers++;
-		log_message("Customer queued at cashier %d. Queue length: %d", cashier_index, cashier_queues[cashier_index].customers);
+		log_message(CYNB BCYN " Cashier %d. " reset MAGB BMAG " Customer queued. " reset BHCYN " Queue length: %d" reset, cashier_index, cashier_queues[cashier_index].customers);
     pthread_cond_signal(&cashier_queues[cashier_index].cond);
 		// Queue should take specified amount of seconds per customer (default 10s)
     sleep(cashier_queues[cashier_index].customers * customer_config->queue_per_customer); 
@@ -48,7 +49,7 @@ void *customer_thread(void *arg) {
         return NULL;
     }
     (*customers_in_store)--;
-    log_message("Customer left. Total customers: %d", *customers_in_store);
+    log_message(BHYEL YELHB " Ding dong! " reset BHRED REDHB " Customer left. " reset BHRED " Total customers: %d" reset, *customers_in_store);
 
     // Dequeue customer from the cashier
     cashier_queues[cashier_index].customers--;
