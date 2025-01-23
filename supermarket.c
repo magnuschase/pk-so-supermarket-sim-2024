@@ -291,16 +291,33 @@ int main() {
     close_log_file();
 
     // Close named semaphore
-    sem_close(customer_signal);
-    sem_unlink("/customer_signal");
+    if (sem_close(customer_signal) != 0) {
+        perror("sem_close failed");
+    }
+    if (sem_unlink("/customer_signal") != 0) {
+        perror("sem_unlink failed");
+    }
+
 
     // Unmap shared memory
-    munmap(customers_in_store, sizeof(int));
-    munmap(store_open, sizeof(int));
-    munmap(current_cashiers, sizeof(int));
-    shm_unlink("/customers_in_store");
-    shm_unlink("/store_open");
-    shm_unlink("/current_cashiers");
+		if (munmap(customers_in_store, sizeof(int)) != 0) {
+        perror("munmap customers_in_store failed");
+    }
+    if (munmap(store_open, sizeof(int)) != 0) {
+        perror("munmap store_open failed");
+    }
+    if (munmap(current_cashiers, sizeof(int)) != 0) {
+        perror("munmap current_cashiers failed");
+    }
+    if (shm_unlink("/customers_in_store") != 0) {
+        perror("shm_unlink /customers_in_store failed");
+    }
+    if (shm_unlink("/store_open") != 0) {
+        perror("shm_unlink /store_open failed");
+    }
+    if (shm_unlink("/current_cashiers") != 0) {
+        perror("shm_unlink /current_cashiers failed");
+    }
 
     return 0;
 }
