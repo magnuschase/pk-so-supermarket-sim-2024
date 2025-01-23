@@ -71,8 +71,12 @@ void log_message(const char *format, ...) {
         vsnprintf(formatted_message, sizeof(formatted_message), format, args);
         remove_ansi_escape_codes(plain_message, formatted_message);
 
-        fprintf(log_file, "[%s] pid:%d > %s\n", time_str, pid, plain_message);
-        fflush(log_file);
+				if (fprintf(log_file, "[%s] pid:%d > %s\n", time_str, pid, plain_message) < 0) {
+            perror("Failed to write to log file");
+        }
+        if (fflush(log_file) != 0) {
+            perror("Failed to flush log file");
+        }
     }
 
     va_end(args);
@@ -90,6 +94,8 @@ void init_log_file(const char *filename) {
 void close_log_file() {
     // Close log file
     if (log_file) {
-        fclose(log_file);
+        if (fclose(log_file) != 0) {
+            perror("Failed to close log file");
+        }
     }
 }
