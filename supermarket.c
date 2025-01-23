@@ -149,11 +149,11 @@ void print_welcome_message() {
 		printf(BHCYN CYNHB "\tAuthor: Jakub Kapała | Album no: 151885\t" reset "\n\n");
 		printf(BHMAG MAGHB "\t\tPolitechnika Krakowska\t\t" reset "\n\n");
 
-		printf(BBLK "Choose an option:" reset "\n");
+		printf(BBLK WHTB "Choose an option:\t" reset "\n");
 		printf(YELHB "[1]" reset BYEL " Start the simulation" reset "\n");
 		printf(YELHB "[2]" reset BYEL " Change configuration" reset "\n");
 		printf(YELHB "[3]" reset BYEL " Exit" reset "\n");
-		printf(BBLK "\nEnter your choice..." reset "\n");
+		printf(BBLK WHTB "\nEnter your choice..." reset "\n");
 
 		if (scanf("%d", &option) != 1) {
 			// Clear invalid input
