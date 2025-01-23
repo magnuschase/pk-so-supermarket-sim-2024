@@ -128,12 +128,20 @@ int main(int argc, char *argv[]) {
     close_log_file();
 
     // Close named semaphore
-    sem_close(customer_signal);
-
+    if (sem_close(customer_signal) != 0) {
+        perror("sem_close failed");
+    }
+		
     // Unmap shared memory
-    munmap(customers_in_store, sizeof(int));
-    munmap(store_open, sizeof(int));
-    munmap(current_cashiers, sizeof(int));
+    if (munmap(customers_in_store, sizeof(int)) != 0) {
+        perror("munmap customers_in_store failed");
+    }
+    if (munmap(store_open, sizeof(int)) != 0) {
+        perror("munmap store_open failed");
+    }
+    if (munmap(current_cashiers, sizeof(int)) != 0) {
+        perror("munmap current_cashiers failed");
+    }
 
     return 0;
 }
