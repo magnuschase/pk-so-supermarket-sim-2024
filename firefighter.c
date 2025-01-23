@@ -50,7 +50,7 @@ void fire_alarm() {
     // Send the message
     send(sock, message, strlen(message), 0);
 		print_header();
-    log_message(BHYEL YELHB " DANGER! DANGER! " reset BHRED REDHB " Fire alarm triggered. " reset);
+    log_message(YELHB BYEL " DANGER! DANGER! " reset REDHB BRED " Fire alarm triggered. " reset);
 
     close(sock);
 }

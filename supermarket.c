@@ -105,7 +105,7 @@ void *socket_server(void *arg) {
     // Read the message from the firefighter process
     read(new_socket, buffer, 1024);
 		sleep(1);
-    log_message(BLKHB " Fire alarm received: %s " reset, buffer);
+    log_message(BLKHB BWHT " Fire alarm received: %s " reset, buffer);
 
     // Signal store closure
     pthread_mutex_lock(&cashier_mutex);
