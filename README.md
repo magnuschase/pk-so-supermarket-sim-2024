@@ -8,7 +8,7 @@
 
 **Temat 10 - Supermarket**
 
-## Założenia projektowe (testy)
+## Założenia projektowe
 
 W pewnym supermarkecie jest łącznie 10 kas. Zasady ich działania przyjęte przez kierownika sklepu
 są następujące:
@@ -22,6 +22,13 @@ są następujące:
 - Klienci przychodzą do supermarketu w losowych momentach czasu i przebywają w nim przez pewien
   określony losowy dla każdego z nich czas. Na sygnał o pożarze – sygnał wysyła strażak - klienci natychmiast opuszczają supermarket bez robienia zakupów, a następnie po wyjściu klientów
   zamykane są wszystkie kasy.
+
+## Testy manualne
+
+1. [Zawsze działają min. 2 stanowiska kasowe.](https://github.com/magnuschase/pk-so-supermarket-sim-2024/blob/c8f061018189ba980d3d1b27ca084082db7925aa/manual_tests/min_2_cash_registers.md)
+2. [Na każdych K klientów znajdujących się na terenie supermarketu powinno przypadać min. 1 czynne stanowisko kasowe. Jeśli liczba klientów jest mniejsza niż K\*(N-1), gdzie N oznacza liczbę czynnych kas, to jedna z kas zostaje zamknięta.](https://github.com/magnuschase/pk-so-supermarket-sim-2024/blob/c8f061018189ba980d3d1b27ca084082db7925aa/manual_tests/cash_register_opening_and_closing.md)
+3. [Jeśli w kolejce do kasy czekali klienci (przed ogłoszeniem decyzji o jej zamknięciu) to powinni zostać obsłużeni przez tę kasę.](https://github.com/magnuschase/pk-so-supermarket-sim-2024/blob/c8f061018189ba980d3d1b27ca084082db7925aa/manual_tests/cash_register_must_be_empty_before_closing.md)
+4. [Na sygnał o pożarze – sygnał wysyła strażak - klienci natychmiast opuszczają supermarket bez robienia zakupów, a następnie po wyjściu klientów zamykane są wszystkie kasy.](https://github.com/magnuschase/pk-so-supermarket-sim-2024/blob/c8f061018189ba980d3d1b27ca084082db7925aa/manual_tests/store_closes_on_fire_alarm.md)
 
 ## Ogólny opis kodu
 
