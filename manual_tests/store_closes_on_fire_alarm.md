@@ -9,7 +9,8 @@ Działanie programu zostaje zakończone w wyniku podniesienia alarmu pożarowego
 ### Przebieg testu
 
 Wywołanie `ps` przed rozpoczęciem działania programu:
-[SCR1]
+<img width="1019" alt="Screenshot 2025-01-26 at 18 30 26" src="https://github.com/user-attachments/assets/4f2deb93-803d-4ad5-b9ea-9be021e66f02" />
+
 
 Ustawiam następującą konfiguracje:
 
@@ -24,7 +25,8 @@ FIRE_WAIT_MAX = 1
 ```
 
 Wywołanie `ps` w trakcie działania programu (`CTRL+Z`, a następnie `fg`):
-[SCR2]
+<img width="1023" alt="Screenshot 2025-01-26 at 18 30 58" src="https://github.com/user-attachments/assets/bf2f718a-f1a2-4234-938f-d8f14a162c29" />
+
 
 Logi z przebiegu testu:
 
@@ -46,7 +48,8 @@ Logi z przebiegu testu:
 ```
 
 Wywołanie `ps` po zakończeniu działania programu:
-[SCR3]
+<img width="1032" alt="Screenshot 2025-01-26 at 18 31 30" src="https://github.com/user-attachments/assets/6b73904b-56b8-4acd-9cb9-7fd0e11aca14" />
+
 
 ## Wynik testu
 
